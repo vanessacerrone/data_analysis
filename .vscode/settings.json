@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "arduino_preamp.C": "cpp",
+        "arduino_plot.C": "cpp",
+        "preamp_bode.C": "cpp"
+    }
+}
