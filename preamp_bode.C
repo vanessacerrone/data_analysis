@@ -1,5 +1,5 @@
 // Author: Vanessa Cerrone
-
+// Credit to Nicolò Lai for plot_func function
 // Last modification: 06/03/2021
 
 // Description: preamp Bode plot
