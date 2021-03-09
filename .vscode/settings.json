@@ -3,6 +3,7 @@
         "arduino_preamp.C": "cpp",
         "arduino_plot.C": "cpp",
         "preamp_bode.C": "cpp",
-        "preamp_lin.C": "cpp"
+        "preamp_lin.C": "cpp",
+        "shaping_time.C": "cpp"
     }
 }
