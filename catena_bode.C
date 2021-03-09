@@ -2,7 +2,7 @@
 // Credit to Nicolò Lai for plot_func function
 // Last modification: 06/03/2021
 
-// Description: preamp Bode plot
+// Description: Catena completa Bode plot
 
 
 using namespace std;
@@ -55,7 +55,7 @@ double plot_func(double* x, double* par){
 
 // The argument is a string variable which contains the name of a txt file
 // containing two columns:  f(Hz)   A(dB)
-void preamp_bode_plot(const string file_name){
+void catena_bode_plot(const string file_name){
     
     // Crea il grafico solo con i punti, f(Hz) e A(dB)
     TGraphErrors *g = new TGraphErrors(file_name.c_str());
@@ -65,7 +65,7 @@ void preamp_bode_plot(const string file_name){
     g->SetMarkerColor(kBlack);
     g->SetMarkerStyle(8);
     g->SetMarkerSize(0.6);
-    g->SetTitle("Preamp - Bode plot ");
+    g->SetTitle("Catena completa - Bode plot ");
     g->GetXaxis()->SetTitle("f(Hz)");
     g->GetXaxis()->SetTitleSize(0.04);
     g->GetXaxis()->SetTickLength(0.02);
@@ -94,7 +94,7 @@ void preamp_bode_plot(const string file_name){
  */
 
 
-void preamp_bode_fit(const string file_name,const string file_name_log){
+void catena_bode_fit(const string file_name,const string file_name_log){
     
     TCanvas *c1 = new TCanvas("c1", "c1", 1080, 720);
     
@@ -104,7 +104,7 @@ void preamp_bode_fit(const string file_name,const string file_name_log){
     g->SetMarkerColor(kBlack);
     g->SetMarkerStyle(8);
     g->SetMarkerSize(0.8);
-    g->SetTitle("Preamp - Bode plot");
+    g->SetTitle("Catena completa - Bode plot");
     g->GetXaxis()->SetTitle("f(Hz)");
     g->GetXaxis()->SetTitleSize(0.04);
     g->GetXaxis()->SetTickLength(0.02);
@@ -119,7 +119,7 @@ void preamp_bode_fit(const string file_name,const string file_name_log){
     
     TGraphErrors *g1= new TGraphErrors(file_name_log.c_str());
 
-    TF1 *f1 = new TF1("f1",myfit,4.3,5.1,2); // fit retta 20dB
+    TF1 *f1 = new TF1("f1",myfit,4.3,5.1,2); // fit retta da -40db
     f1->SetParNames("b","a");
     TFitResultPtr fit_result = g1->Fit(f1,"RS");
     //f1->Draw("SAME");
@@ -216,7 +216,7 @@ void preamp_bode_fit(const string file_name,const string file_name_log){
     auto legend = new TLegend(0.13,0.7,0.3,0.9);
     legend->SetTextSize(0.027);
     legend->AddEntry(g,"Measures","ep");
-    legend->AddEntry(func,"Fit function y = a + bx ","l"); // retta da 20db
+    legend->AddEntry(func,"Fit function y = a + bx ","l"); // retta da -40db
     legend->AddEntry(func2,"Fit function y = c + dx ","l"); // retta orizzontale
     //legend->AddEntry(line_x_taglio,"x = f_{t} , frequenza di taglio","l");
     //legend->AddEntry(g2,"LTspice simulated data","l");
@@ -224,7 +224,7 @@ void preamp_bode_fit(const string file_name,const string file_name_log){
     legend->Draw();
     
     
-    // mostra parametri dei fit in una finestra
+    // mostra parametri dei fit in una finestra (da modificare i valori numerici)
     TPaveText *pt = new TPaveText(0.1,0.1,0.2,0.2,"blNDC");
     pt->AddText("Fit parameters function y = a + bx");
     pt->AddText("a = ( 158 #pm 5 )dB");
@@ -262,8 +262,8 @@ void preamp_bode_fit(const string file_name,const string file_name_log){
     // grafico dei residui
     auto mgerr = new TMultiGraph();
     
-    TGraphErrors *gr = new TGraphErrors(file_name_log.c_str());  // retta da 20dB
-    for (int i=14; i<17; i++) {
+    TGraphErrors *gr = new TGraphErrors(file_name_log.c_str());  // retta da -40dB
+    for (int i=23; i<28; i++) {
       double res = g1->GetY()[i] - f1->Eval(g1->GetX()[i]); // residuo
       gr->SetPoint(i,g1->GetX()[i],res);
       double eresy = g1->GetEY()[i];
@@ -328,7 +328,7 @@ void preamp_bode_fit(const string file_name,const string file_name_log){
     // errore a posteriori
     double err_post_squared = 0;
    
-    for(unsigned int j = 14; j < 17;j++) {
+    for(unsigned int j = 23; j < 28;j++) {
         err_post_squared += pow( a + ( b * g1->GetX()[j] ) - g1->GetY()[j] , 2 ) / ( f1->GetNDF());
     }
    
