@@ -104,7 +104,7 @@ void preamp_bode_fit(const string file_name,const string file_name_log){
     g->SetMarkerColor(kBlack);
     g->SetMarkerStyle(8);
     g->SetMarkerSize(0.8);
-    g->SetTitle("Catena completa - Bode plot");
+    g->SetTitle("Preamp - Bode plot");
     g->GetXaxis()->SetTitle("f(Hz)");
     g->GetXaxis()->SetTitleSize(0.04);
     g->GetXaxis()->SetTickLength(0.02);
