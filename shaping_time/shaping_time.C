@@ -33,12 +33,14 @@ using namespace std;
 void shaping_time()
 {
  
+
+    TGraph *g = new TGraph("shaper_R1.txt");
+
     double x_min = 0; 
     double x_max = 0.3;
     double y_min = TMath::MinElement(g->GetN(),g->GetY())-0.2; 
     double y_max = TMath::MaxElement(g->GetN(),g->GetY())+0.2;
 
-    TGraph *g = new TGraph("shaper_R1.txt");
     TCanvas *c1 = new TCanvas("c1", "c1", 1080, 720);
     g->SetLineColor(kPink+7);
     g->SetMarkerColor(kPink+7);
