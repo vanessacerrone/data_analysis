@@ -30,8 +30,14 @@ using namespace std;
 
 using namespace std;
 
-void shaping_time(){
-    
+void shaping_time()
+{
+ 
+    double x_min = 0; 
+    double x_max = 0.3;
+    double y_min = TMath::MinElement(g->GetN(),g->GetY())-0.2; 
+    double y_max = TMath::MaxElement(g->GetN(),g->GetY())+0.2;
+
     TGraph *g = new TGraph("shaper_R1.txt");
     TCanvas *c1 = new TCanvas("c1", "c1", 1080, 720);
     g->SetLineColor(kPink+7);
@@ -46,8 +52,8 @@ void shaping_time(){
     g->GetYaxis()->SetTitle("voltage (V)");
     g->GetYaxis()->SetTitleSize(0.04);
     g->GetYaxis()->SetTickLength(0.02);
-    g->GetYaxis()->SetRangeUser(TMath::MinElement(g->GetN(),g->GetY())-0.2,TMath::MaxElement(g->GetN(),g->GetY())+0.2);
-    g->GetXaxis()->SetRangeUser(0,0.3);
+    g->GetYaxis()->SetRangeUser(y_min, y_max);
+    g->GetXaxis()->SetRangeUser(x_min,x_max);
     g->Draw("al");
     c1->Update();
     
