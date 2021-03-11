@@ -4,4 +4,4 @@
 * In ciascuna cartella ci sono:
   * i dati acquisiti in un file di testo, nella forma x,y,errx,erry;
   * la macro da eseguire con ROOT;
-  * evetuali plot 
+  * eventuali plot.

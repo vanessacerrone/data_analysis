@@ -1,0 +1,332 @@
+# --------------------------------------
+# ESPERIENZA CATENA ELETTRONICA
+# --------------------------------------
+# 
+# per ogni punto dell'esperienza utilizzare il seguente formato:
+#
+# una riga di commento (inizio con #) con il numero del punto
+#
+# per le misure: 
+# una riga di commento che dice di cosa si tratta
+# una riga di commento con l'indicazione della sequenza dei dati riportati
+# righe con i dati nella sequenza corrispondente
+ 
+
+# 1) PREAMP 
+
+# Misura componenti
+# E' stato sottratto dalla capacità un fondo di 12pF 
+# Label, dato letto, scala 
+
+Rin, 68.1k, 600k
+Rf_pre, 816k, 6Meg
+Cf_pre, 177p, 1000p
+
+# 1.2 Valori attesi 
+# Label, valore
+
+Qin, 73.4 pC
+tau_pre, 152.6 us
+V_pre_max, 392.6mV
+
+# 1.3 Verifica linearità del preamplificatore 
+# La baseline di -0.012V non è stata inclusa in Vmax in seguito	
+# T(us), Qin (pC), Vmax (V), scala(V/div)
+
+3.5,	51.4,	 0.264,	100m
+4,	58.7,	 0.300,	100m
+4.5,	66.1,	 0.340,	100m
+5,	73.4,	 0.376,	200m
+5.5,	80.8,	 0.416,	200m
+6,	88.1,	 0.448, 200m
+6.5,	95.4,	 0.488,	200m
+7,	102.8,	 0.528,	200m
+7.5,	110.1,	 0.560,	200m
+8,	117.5,	 0.600,	200m
+8.5,	124.8,	 0.632,	200m
+9,	132.2,	 0.672,	200m
+9.5,	139.5,	 0.712,	200m
+10,	146.8,	 0.744,	200m
+ 
+
+
+# 1.4 tempo caratteristico
+# Valori sperimentali 
+# Si mette il cursore 1 a livello asintotico di smorzamento e si misura con il cursore 2 l'istante in cui V_pre = V_pre_max/e. Con la label "istante" si intende il delta tra i due cursori
+# Label, dato letto, scala  
+
+V_pre_max,    388mV,  200mV
+V_pre_max/e,  148mV,  200mV	
+Istante,      158us,  50us
+
+
+
+# 1.5 Risposta in frequenza
+# f(Hz), Vin(V), scala (V/div), Vout(V), scala (V/div)
+
+5,	1.02,	200m,	12.1,	2
+10,	1.02,	200m,	12.0,	2
+16,	1.01,	200m,	12.0,	2
+32,	1.01,	200m,	12.0,	2
+50,	1.01,	200m,	12.0,	2
+100,	1.01,	200m,	12.0,	2
+158,	1.01,	200m,	11.9,	2
+316,	1.01,	200m,	11.6,	2
+398,	1.01,	200m,	11.2,	2
+501,	1.01,	200m,	10.8,	2
+631,	1.01,	200m,	10.3,	2
+794,	1.01,	200m,	9.6,	2
+1000,	1.01,	200m,	8.72,	2
+1259,	1.01,	200m,	7.68,	2
+1585,	1.01,	200m,	6.64,	2
+1995,	1.01,	200m,	5.56,	1
+2512,	1.01,	200m,	4.6,	1
+3162,	1.02,	200m,	3.8,	1
+5012,	1.02,	200m,	2.44,	500m
+10000,	1.02,	200m,	1.24,	200m
+31623,	1.00,	200m,	400m,	100m
+100000,	0.992,	200m,	130m,	50m
+500000,  0.992,	200m,	28m,	20m
+1000000,	 1.01,	200m,	16m,	20m
+
+
+# --------------------------------------
+
+
+# 2) SHAPER 
+
+# 2.1 Shaper base CR-RC
+# Misura componenti
+# E' stato sottratto dalle capacità un fondo di 12pF 
+# Label, dato letto, scala 
+
+Rsh1, 148.1k, 600k	
+Rsh2, 148.3k, 600k	
+Csh1, 99p, 1000p
+Csh2, 100p, 1000p	
+
+# Valori attesi
+# Label, valore
+
+Tau_sh1,	 14.7us
+Tau_sh2,	 14.8us
+V_max_th, 367.9mV
+
+# Valori sperimentali
+# Label, dato letto, scala
+
+V_sh_max, 332mV, 100mV
+t_sh_max, 18us, 50us
+
+# 2.2 Risposta in frequenza dello shaper base 
+# f(Hz), Vin(V), scala (V/div), Vout(V), scala (V/div)
+
+56	,	1.02	,	200m	,	0.0072	,	20m
+100	,	1	,	200m	,	0.0104	,	20m
+178	,	1	,	200m	,	0.0184	,	20m
+316	,	1	,	200m	,	0.0312	,	20m
+562	,	1	,	200m	,	0.0552	,	20m
+1000	,	1	,	200m	,	0.0976	,	20m
+1778	,	1	,	200m	,	0.168	,	50m
+3162	,	1	,	200m	,	0.276	,	50m
+5623	,	1	,	200m	,	0.4	,	100m
+7800	,	1	,	200m	,	0.44	,	100m
+9000	,	1	,	200m	,	0.452	,	100m
+10000	,	1.02	,	200m	,	0.452	,	100m
+12000	,	1.02	,	200m	,	0.436	,	100m
+17783	,	1.01	,	200m	,	0.372	,	100m
+20000	,	1.01	,	200m	,	0.348	,	100m
+25000	,	1.01	,	200m	,	0.296	,	100m
+31623	,	1.01	,	200m	,	0.244	,	50m
+56234	,	1	,	200m	,	0.146	,	50m
+100000	,	1	,	200m	,	0.086	,	50m
+177828	,	1	,	200m	,	0.0488	,	20m
+316228	,	1.01	,	200m	,	0.0296	,	20m
+562341	,	1	,	200m	,	0.0192	,	20m
+1000000	,	1.01	,	200m	,	0.0136	,	20m
+
+
+# 2.3 Shaper CR-RC con compensazione Pole-Zero
+# Misure sperimentali 
+# Label, dato letto, scala
+
+V_pre_max, 380mV, 100mV
+V_sh_max, 118mV, 50mV
+t_sh_max, 18us, 50us
+V_undershoot, -20mV, 100mV
+
+# Valori teorico e sperimentale di Rpz
+# Per Rpz si sono usate due resistenze in serie Rpz_1,2
+
+# Misure componenti
+# Label, valore, scala
+
+Rpz_1, 706k, 6Meg	
+Rpz_2, 821k, 6Meg
+
+# Label, valore
+
+Rpz_th, 1.54Meg
+Rpz_sper, 1.527Meg
+
+
+
+
+
+# --------------------------------------
+
+
+# 3) CATENA ELETTRONICA COMPLETA
+
+# 3.1 Stadio finale di amplificazione
+# Misure sperimentali 
+# Label, dato letto, scala
+
+V_sh_max, 240mV, 100mV
+
+# Amplificazione teorica per avere 2V
+# Label, valore
+
+A_th, 8.33
+
+# Misure componenti
+# Label, valore, scala
+
+R1a, 819k, 6Meg
+R2a, 99.8k, 600k
+
+# Misure sperimentali
+# Label, valore, scala
+
+V_out_max, 2.24V, 1V
+
+
+# 3.2 Linearità della catena elettronica 
+# T(us), Qin (pC), Vmax (V), scala(V/div)
+
+3.5	,	51.4	,	0.82	,	500m
+4	,	58.7	,	0.92	,	500m
+4.5	,	66.1	,	1.04	,	500m
+5	,	73.4	,	1.14	,	500m
+5.5	,	80.8	,	1.26	,	500m
+6	,	88.1	,	1.36	,	500m
+6.5	,	95.4	,	1.48	,	500m
+7	,	102.8	,	1.6	,	500m
+7.5	,	110.1	,	1.68	,	500m
+8	,	117.5	,	1.80	,	500m
+8.5	,	124.8	,	1.9	,	500m
+9	,	132.2	,	2.04	,	1
+9.5	,	139.5	,	2.12	,	1
+10	,	146.8	,	2.24	,	1
+
+
+# 3.3 Risposta in frequenza della catena elettronica
+# f(Hz), Vin(V), scala (V/div), Vout(V), scala (V/div)
+
+5	,	1.01	,	200m	,	9.92	,	2
+10	,	1.01	,	200m	,	9.92	,	2
+16	,	1.01	,	200m	,	9.84	,	2
+32	,	1.01	,	200m	,	9.92	,	2
+50	,	1.01	,	200m	,	9.92	,	2
+100	,	1.01	,	200m	,	9.84	,	2
+158	,	1.01	,	200m	,	9.84	,	2
+316	,	1.01	,	200m	,	9.92	,	2
+398	,	1.01	,	200m	,	9.92	,	2
+501	,	1.01	,	200m	,	9.92	,	2
+631	,	1.01	,	200m	,	9.92	,	2
+794	,	1.01	,	200m	,	9.92	,	2
+1000	,	1.01	,	200m	,	9.92	,	2
+1259	,	1.01	,	200m	,	9.92	,	2
+1585	,	1.01	,	200m	,	9.84	,	2
+1995	,	1.01	,	200m	,	9.68	,	2
+2512	,	1.01	,	200m	,	9.52	,	2
+3162	,	1.02	,	200m	,	9.2	,	2
+5012	,	1.02	,	200m	,	8.08	,	2
+7000	,	1.02	,	200m	,	6.68	,	1
+8000	,	1.01	,	200m	,	6.08	,	1
+10000	,	1.02	,	200m	,	4.96	,	1
+15000	,	1.01	,	200m	,	3.02	,	500m
+20000	,	1.01	,	200m	,	1.98	,	500m
+31623	,	1	,	200m	,	0.84	,	200m
+50000	,	1.00	,	200m	,	0.324	,	100m
+70000	,	0.992	,	200m	,	0.152	,	100m
+100000	,	0.992	,	200m	,	0.066	,	50m
+177828	,	0.992	,	200m	,	0.0152	,	20m
+316228	,	0.992	,	200m	,	0.004	,	20m
+
+
+# 3.4 Effetto dello shaping time 
+# Si registra con Arduino il segnale in uscita dalla catena con altre tre coppie di resistenze Rsh(i)
+# Si riporta nel file "Shaping_time.png la diversa risposta al variare di Rsh
+# Label, dato letto, scala 
+
+Rsh1(2), 100.2k, 600k	
+Rsh2(2), 99.7k, 600k
+
+Rsh1(3), 82.5k, 600k	
+Rsh2(3), 81.6, 600k
+
+Rsh1(4), 182k, 600k	
+Rsh2(4), 180.5k, 600k
+
+# Si registra la risposta in frequenza dello shaper base con onda quadra in ingresso con le due coppie di resistenze Rsh(2) e Rsh(4)
+# Si riporta nel file "Shaper_bode(Rsh).png" la risposta in funzione di Rsh
+
+# ----Rsh(2)----
+# f(Hz), Vin(V), scala (V/div), Vout(V), scala (V/div)
+
+56	,	1.01	,	200m	,	0.0056	,	20m
+100	,	1.01	,	200m	,	0.0088	,	20m
+178	,	1.01	,	200m	,	0.0168	,	20m
+316	,	1.01	,	200m	,	0.0232	,	20m
+562	,	1.01	,	200m	,	0.0416	,	20m
+1000	,	1.01	,	200m	,	0.0644	,	20m
+1778	,	1.01	,	200m	,	0.115	,	20m
+3162	,	1.01	,	200m	,	0.2	,	50m
+5623	,	1.01	,	200m	,	0.316	,	50m
+7800	,	1.01	,	200m	,	0.388	,	100m
+9000	,	1.01	,	200m	,	0.416	,	100m
+10000	,	1.02	,	200m	,	0.432	,	100m
+12000	,	1.02	,	200m	,	0.452	,	100m
+17783	,	1.01	,	200m	,	0.444	,	100m
+20000	,	1.01	,	200m	,	0.428	,	100m
+25000	,	1.01	,	200m	,	0.388	,	100m
+31623	,	1.01	,	200m	,	0.336	,	100m
+56234	,	1	,	200m	,	0.214	,	50m
+100000	,	1	,	200m	,	0.126	,	50m
+177828	,	0.992	,	200m	,	0.0712	,	20m
+316228	,	0.992	,	200m	,	0.0424	,	20m
+562341	,	1	,	200m	,	0.0256	,	20m
+1000000	,	1	,	200m	,	0.0176	,	20m
+
+
+# ----Rsh(4)----
+# f(Hz), Vin(V), scala (V/div), Vout(V), scala (V/div)
+
+56	,	1.01	,	200m	,	0.008	,	20m
+100	,	1.01	,	200m	,	0.00136	,	20m
+178	,	1.01	,	200m	,	0.0232	,	20m
+316	,	1.01	,	200m	,	0.0392	,	20m
+562	,	1.01	,	200m	,	0.0664	,	20m
+1000	,	1.01	,	200m	,	0.116	,	20m
+1778	,	1.01	,	200m	,	0.198	,	50m
+3162	,	1.01	,	200m	,	0.322	,	50m
+5623	,	1.01	,	200m	,	0.432	,	50m
+7800	,	1.01	,	200m	,	0.448	,	100m
+9000	,	1.01	,	200m	,	0.456	,	100m
+10000	,	1.02	,	200m	,	0.432	,	100m
+12000	,	1.02	,	200m	,	0.408	,	100m
+17783	,	1.01	,	200m	,	0.336	,	100m
+20000	,	1.01	,	200m	,	0.304	,	100m
+25000	,	1.01	,	200m	,	0.256	,	100m
+31623	,	1.01	,	200m	,	0.208	,	50m
+56234	,	1	,	200m	,	0.138	,	50m
+100000	,	1	,	200m	,	0.076	,	50m
+177828	,	1	,	200m	,	0.044	,	20m
+316228	,	0.992	,	200m	,	0.0256	,	20m
+562341	,	0.992	,	200m	,	0.02	,	20m
+1000000	,	1	,	200m	,	0.014	,	20m
+
+# --------------------------------------
+# eventuali commenti
+

@@ -1,0 +1,1 @@
+# Logbook consegnato per l'esperienza degli amplificatori operazionali

@@ -1,0 +1,188 @@
+# FORMAT PER REGISTRAZIONE DATI RACCOLTI DA POSTARE IN MOODLE (come FILE DI TESTO, NO WORD, PDF o altre varianti di formato)
+# - inserire i dati seguendo il formato indicato
+# - si possono utilizzare i modificatori tipo LTspice: k (kilo), Meg(mega), m(milli), u(micro), n(nano), p(pico)
+# - per eventuali commenti mettete un cancelletto a inizio riga
+
+# --------------------------------------
+
+# ESPERIENZA OPAMPS
+
+# --------------------------------------
+# 1) CURVA VTC
+
+# misura componenti: label, dato letto, scala (es. R1, 123.6k, 600k)
+# un componente per riga
+
+R1, 6.69k, 60k
+Rf, 32.74k, 60k
+R3, 46.5, 600
+
+# dati VTC : vin, scala, vout, scala (es. 104m, 20m, 760m, 200m)
+# un punto per riga
+
+#Massimi
+
+97.2m	,	32m	,	488m	,	200m
+244m	,	100m	,	1.2	,	500m
+488m	,	200m	,	2.36	,	1
+712m	,	200m	,	3.56	,	1
+960m	,	400m	,	4.75	,	1.8
+1.18	,	400m	,	5.90	,	1.8
+1.44	,	420m	,	7.07	,	1.9
+1.67	,	460m	,	8.33	,	2.5
+1.94	,	600m	,	9.48	,	3
+2.14	,	600m	,	10.7	,	3
+2.42	,	650m	,	11.8	,	3.5
+2.65	,	770m	,	13	,	3.8
+2.88	,	800m	,	14.2	,	4
+3.12	,	820m	,	14.4	,	4.2
+3.35	,	820m	,	14.4	,	4.2
+3.61	,	950m	,	14.4	,	4.2
+
+#Minimi
+
+-97.2m	,	32m	,	-456m	,	200m
+-240m	,	100m	,	-1.16	,	500m
+-480m	,	200m	,	-2.36	,	1
+-720m	,	200m	,	-3.52	,	1
+-960m	,	400m	,	-4.68	,	1.8
+-1.18	,	400m	,	-5.83	,	1.8
+-1.43	,	420m	,	-6.99	,	1.9
+-1.67	,	460m	,	-8.33	,	2.5
+-1.9	,	600m	,	-9.61	,	3
+-2.12	,	600m	,	-10.7	,	3
+-2.39	,	650m	,	-11.8	,	3.5
+-2.62	,	770m	,	-13	,	3.8
+-2.88	,	800m	,	-13.9	,	4
+-3.08	,	820m	,	-13.9	,	4.2
+-3.35	,	820m	,	-13.9	,	4.2
+-3.57	,	950m	,	-13.9	,	4.2
+
+
+# --------------------------------------
+# 2) DERIVATORE
+
+# misura componenti: label, dato letto, scala (es. R1, 123.6k, 600k)
+# un componente per riga
+
+R1, 6.69k, 60k
+Rf, 32.74k, 60k
+R3, 46.5, 600
+C1, 2.17n, 10n 
+
+# misura diretta frequenza di taglio: f, vin, scala, vout, scala (es. 12.45k, 1.00, 200m, 704m, 200m)
+
+11.4k, 960m, 200m, 3.32, 500m
+
+# dati risposta in frequenza : f, vin, scala, vout, scala (es. 12.45k, 1.00, 200m, 704m, 200m)
+# un punto per riga
+
+213	 ,	0.968	,	200m	,	94.4m	,	200m
+457.09	 ,	0.968	,	200m	,	200m	,	500m
+1000	 ,	0.968	,	200m	,	428m	,	100m
+2137.96	 ,	0.968	,	200m	,	896m	,	200m
+4570.88	 ,	0.968	,	200m	,	1.76	,	500m
+9000	 ,	0.96	,	200m	,	2.92	,	500m
+10000	 ,	0.968	,	200m	,	3.08	,	500m
+10400	 ,	0.96	,	200m	,	3.2	,	500m
+10900	 ,	0.96	,	200m	,	3.26	,	500m
+11400	 ,	0.976	,	200m	,	3.32	,	500m
+12589	 ,	0.96	,	200m	,	3.48	,	500m
+21379.62 ,	0.952	,	200m	,	4.16	,	1
+45708	 ,	0.944	,	200m	,	4.52	,	1
+100000	 ,	0.936	,	200m	,	4.56	,	1
+158489	 ,	0.848	,	200m	,	4.48	,	1
+213796.2 ,	0.928	,	200m	,	4.36	,	1
+457088.18,	0.928	,	200m	,	3.6	,	1
+607647	 ,	0.848	,	200m	,	3	,	500m
+1000000	 ,	0.84	,	200m	,	2	,	500m
+2000000	 ,	0.84	,	200m	,	808m	,	200m
+
+# --------------------------------------
+# 3) SOMMATORE INVERTENTE
+
+# misura componenti: label, dato letto, scala (es. R1, 123.6k, 600k)
+# un componente per riga
+
+R1, 6.69k, 60k
+Rf, 6.64k, 60k
+R3, 46.5, 600
+R1b, 6.76k, 60k
+R3b, 46.5, 600
+
+# misure significative onda somma: label, vin1, scala, vin2, scala, vout, scala (es. P1, 400m, 100m, 400m, 100m, 800m, 200m) 
+
+# le label andranno descritte nella relazione (es. P1 = massimo1 + massimo2...)
+
+# una misura per riga
+
+#Sono state acquisite misure di Vin1,Vin2 e Vout ad istanti temporali fissati
+
+P1, 473m,  200m, -256m,  200m, -200m,  500m
+P2, -294m, 200m,  458m,  200m, -173m,  500m
+P3, -289m, 200m, -469m,  200m,  750m,  500m
+P4, 473m,  200m,  255m,  200m, -771m,  500m
+P5, 400m,  200m,  480m,  200m, -859m,  500m
+P6, -288m, 200m,  471m,  200m, -182m,  500m 
+
+
+# misure significative onde in battimento: label, vin1, scala, vin2, scala, vout, scala (es. P1, 400m, 100m, 400m, 100m, 800m, 200m) 
+# le label andranno descritte nella relazione (es. P1 = massimo1 + massimo2...)
+# una misura per riga
+
+#Periodo dell'onda inviluppo misurato sperimentalmente 
+
+#Di seguito è riportato il valore del semiperiodo dell'onda inviluppo misurato sperimentalmente 
+
+10.4 ms
+
+
+# --------------------------------------
+# 4) DAQ CON ARDUINO
+
+# numero arduino (es. 11)
+
+8
+
+# stima approssimata sampling rate in Samples/s
+
+950000
+
+#Calcolo il sampling rate S=Nf, con N numero di punti acquisiti in un periodo e f=5kHz
+
+#Trovo N di circa 190 -> S= 190*5000=950000 Samples/s
+
+# valori impostati e misurati delle tensioni: Anom, VL, scala, VH, scala (es. 500m, 0.00, 100m, 504m, 100m)
+# una tensione per riga
+
+
+200m	,	0.00	,	100m	,	200m	,	100m
+500m	,	0.00	,	100m	,	488m	,	100m
+1.5	,	0.00	,	500m	,	1.52	,	500m
+1.8	,	0.00	,	500m	,	1.76	,	500m
+2	,	0.00	,	500m	,	1.98	,	500m
+2.1	,	0.00	,	500m	,	2.1	,	500m
+2.2	,	-40m	,	1	,	2.2	,	1
+2.3	,	-40m	,	1	,	2.28	,	1
+2.4	,	-40m	,	1	,	2.4	,	1
+2.5	,	-40m	,	1	,	2.48	,	1
+
+
+# --------------------------------------
+# 5) RADDRIZZATORE DI PRECISIONE
+
+# misura componenti: label, dato letto, scala (es. R1, 123.6k, 600k)
+# un componente per riga
+
+# tensioni misurate corrispondenti al massimo di Vin (V1, scala, V2, scala, Vo0', scala, Vo, scala)
+
+# tensioni misurate corrispondenti al minimo di Vin (V1, scala, V2, scala, Vo0', scala, Vo, scala)
+
+
+
+# --------------------------------------
+# eventuali commenti
+
+# Il fit della VTC è stato effettuato separatamente per massimi e minimi, escludendo i dati presi in saturazione, e considerando solo gli errori sulle y.
+ 
+# Nel grafico di Bode si riportano due simulazioni fatte con LTspice per verificare l'andamento dei dati: una considerando il circuito ideale, l'altra aggiungendo una capacità in parallelo (≈8pF) alla Rf per tenere conto di effetti dovuti alla presenza di capacità parassite. 
