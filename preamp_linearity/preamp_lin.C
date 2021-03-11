@@ -42,8 +42,8 @@ double myfit(double* x, double* par){
 void preamp_lin(const string file_name) {
     
     // fit range defined by user
-    const double XMIN1 = 85;
-    const double XMAX1 = 182;
+    const double XMIN1 = 50;
+    const double XMAX1 = 150;
    
     // Data lines should be x,y,errx,erry
     TGraphErrors *g = new TGraphErrors(file_name.c_str());
@@ -81,9 +81,9 @@ void preamp_lin(const string file_name) {
     // displays fit parameters in a window
     TPaveText *pt = new TPaveText(0.1,0.1,0.2,0.2,"blNDC");
     pt->AddText("Fit parameters");
-    pt->AddText("a = (  0.005 #pm 0.012 )V");
-    pt->AddText("b = ( 0.0044 #pm 0.0001 )pF^{-1}");
-    pt->AddText("#chi^{(2)} / Ndof = 0.9 / 9");
+    pt->AddText("a = ( 0.021 #pm 0.007 )V");
+    pt->AddText("b = ( 0.00505 #pm 0.00008 )pF^{-1}");
+    pt->AddText("#chi^{(2)} / Ndof = 0.6 / 12");
     pt->AddText("#sigma_{y,post} = 0.002V");
     pt->SetFillColor(0);
     pt->SetTextAlign(12);
