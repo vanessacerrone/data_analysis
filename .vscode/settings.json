@@ -5,6 +5,7 @@
         "preamp_bode.C": "cpp",
         "preamp_lin.C": "cpp",
         "shaping_time.C": "cpp",
-        "catena_bode.C": "cpp"
+        "catena_bode.C": "cpp",
+        "catena_lin.C": "cpp"
     }
 }
